@@ -1,9 +1,9 @@
 google-auth-oauthlib
-tensorflow-gpu==2.8.0
-opencv-python==4.8.0.76
 tqdm
 ffmpeg-python
 scikit-image
 chainer
 Pillow
 youtube_dl
+tensorflow-gpu==2.8.0
+opencv-python==4.8.0.76
