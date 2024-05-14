@@ -11,7 +11,7 @@ image_extenstion="png"#["jpg","png"]
 # print(os.getcwd())
 full_path=os.getcwd()
 low_cartoon=[]
-for i in glob(f"{full_path}/cartoonized_images/*.{image_extenstion}"):
+for i in glob(f"{full_path}/cartoonized_images/*.png"):
   low_cartoon.append(i)
 
 os.chdir("./waifu2x-chainer-master")
