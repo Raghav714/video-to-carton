@@ -3,7 +3,7 @@ import os
 from glob import glob
 import datetime
 try:
-   var=os.system(f'ffmpeg -i "./input_video{video_extenstion}" "test_images/%03d.{image_extenstion}"')
+   var=os.system(f'ffmpeg -i "./input_video.mp4" "test_images/%03d.png"')
    if var==0:
       print("Frame extract successful")
    else:
@@ -30,7 +30,7 @@ else:
    
 os.chdir("./cartoonized_images")
 #print(os.getcwd())
-var3=os.system(f"ffmpeg -framerate 30 -i %03d.{image_extenstion} cartoon{video_extenstion}")
+var3=os.system(f"ffmpeg -framerate 30 -i %03d.png cartoon.mp4")
 if var3==0:
     print("We successfully make the cartoonized video.")
 else:
@@ -49,22 +49,18 @@ for i in remove_list:
       except:
          pass
 
-shutil.move(f"input_video{video_extenstion}","./input_video/")
-shutil.move(f"./cartoonized_images/cartoon{video_extenstion}","./input_video/")
+shutil.move(f"input_video.mp4","./input_video/")
+shutil.move(f"./cartoonized_images/cartoon.png","./input_video/")
 
 
 os.chdir("./input_video")
-if video_title.endswith(".mp4"):
-    extension=".mp4"
-elif video_title.endswith(".mkv"):
-    extension = ".mkv"
 
-var4=os.system(f"ffmpeg -i input_video{extension} audio.wav")
+var4=os.system(f"ffmpeg -i input_video.mp4 audio.wav")
 if var4==0:
     print("Successfully export audio")
 else:
     print("Failed to export audio")
-var5=os.system(f"ffmpeg -i cartoon{video_extenstion} -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 cartoon_audio{video_extenstion}")
+var5=os.system(f"ffmpeg -i cartoon.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 cartoon_audio.mp4")
 if var5==0:
     print("Successfully replace audio in output file")
 else:
