@@ -22,15 +22,8 @@ if var1==0:
 else:
    print("cartoonize failed")
 
- #upscale image
-if my_parameter[-1]=="yes":
-   print("Upscaling")
-   os.system("python upscale.py")
-elif my_parameter[-1]=="no":
-   print("No upscaling")
-else:
-   pass
-   
+print("Upscaling")
+os.system("python upscale.py")
    
 os.chdir("./cartoonized_images")
 #print(os.getcwd())
