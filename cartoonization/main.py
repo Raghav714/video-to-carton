@@ -4,6 +4,7 @@ from glob import glob
 import datetime
 try:
     os.mkdir("test_images")
+    os.mkdir("cartoonized_images")
 except:
     pass
 try:
