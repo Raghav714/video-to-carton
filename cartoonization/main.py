@@ -3,6 +3,10 @@ import os
 from glob import glob
 import datetime
 try:
+    os.mkdir("test_images")
+except:
+    pass
+try:
    var=os.system(f'ffmpeg -i "./input_video.mp4" "test_images/%03d.png"')
    if var==0:
       print("Frame extract successful")
